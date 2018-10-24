@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a sample ruby on rails application.
 
-Things you may want to cover:
+## Setup
 
-* Ruby version
+```
+$ rails db:setup
+```
 
-* System dependencies
+## boot
+```
+$ docker-compose up -d && rails s
+```
 
-* Configuration
+## Usage
 
-* Database creation
+The application is booted on `localhost:3000`
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The kibana tools for elastic search are booted on `localhost:5601`
