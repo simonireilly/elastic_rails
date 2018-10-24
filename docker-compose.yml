@@ -1,0 +1,32 @@
+version: '3'
+services:
+  elasticsearch:
+    container_name: elasticsearch
+    image: "elasticsearch:6.4.2"
+    ports:
+     - "9200:9200"
+     - "9300:9300"
+    environment:
+      ES_JAVA_OPTS: "-Xms500m -Xmx500m"
+    ulimits:
+      nofile:
+         soft: 65536
+         hard: 65536
+    networks:
+      elastic_rails:
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:6.4.2
+    container_name: kibana
+    ports:
+     - "5601:5601"
+    environment:
+       - "ELASTICSEARCH_URL=http://elasticsearch:9200"
+    depends_on:
+       - elasticsearch
+    networks:
+       elastic_rails:
+
+networks:
+  elastic_rails:
+    driver: bridge
