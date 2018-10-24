@@ -27,6 +27,14 @@ services:
     networks:
        elastic_rails:
 
+  postgres:
+    container_name: postgres
+    image: 'postgres:11.0-alpine'
+    ports:
+      - "5432:5432"
+    networks:
+      elastic_rails:
+
 networks:
   elastic_rails:
     driver: bridge
